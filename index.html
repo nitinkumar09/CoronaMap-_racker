@@ -1,0 +1,52 @@
+<!-- Plotting CoronaVirus Cases On World Map - Interactive Dashboard Using JavaScript & MapBox -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Display a map on a webpage</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Corona Map</h1>
+    <div id="map"></div>
+</body>
+<script src="/index.js"></script>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoibml0aW44ODU2IiwiYSI6ImNsdThuYTFqdjAwdGgya3Bpd3V1b3h6d3IifQ.Ekf0v1SI_ei0bE9QSMHaKA';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        center: [-74.5, 40], // starting position [lng, lat]
+        style: 'mapbox://styles/mapbox/dark-v10',
+        zoom: 1 // starting zoom
+    });
+    let mapp = document.querySelector('#map');
+
+    mapp.addLayer({
+        id: 'park-volcanoes',
+        type: 'circle',
+        source: 'national-park',
+        paint: {
+            'circle-radius': 6,
+            'circle-color': '#B42222'
+        }
+    });
+</script>
+
+</html>
