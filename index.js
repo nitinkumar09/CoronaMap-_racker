@@ -1,5 +1,5 @@
 function updateMap() {
-    fetch("./data.json")
+    fetch("https://nitinkumar09.github.io/CoronaMap-_racker/data.json")
         .then(response => response.json())
         .then(res => {
             console.log(res.data);
